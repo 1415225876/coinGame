@@ -49,7 +49,7 @@ class CounterController extends Controller
         // }
         try {
             $jsonContent = request()->getContent();
-            Log::info('getCount Received JSON data: ' . $jsonContent);
+            Log::info('getCount Received JSON: ' . $jsonContent);
             return response()->json($jsonContent);
         } catch (Exception $e) {
             $res = [
