@@ -49,7 +49,7 @@ class CounterController extends Controller
         // }
         try {
             $jsonContent = request()->getContent();
-            Log::info('updateCount Received JSON data: ' . $jsonContent);
+            Log::info('getCount Received JSON data: ' . $jsonContent);
             return response()->json($jsonContent);
         } catch (Exception $e) {
             $res = [
@@ -57,7 +57,7 @@ class CounterController extends Controller
                 "data" => [],
                 "errorMsg" => ("更新计数异常" . $e->getMessage())
             ];
-            Log::info('updateCount rsp: '.json_encode($res));
+            Log::info('getCount rsp: '.json_encode($res));
             return response()->json($res);
         }
     }
