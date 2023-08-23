@@ -80,7 +80,7 @@ class CounterController extends Controller
             //     "code" => 0,
             //     "data" =>  $count
             // ];
-            Log::info('updateCount rsp: ');
+            Log::info('updateCount rsp: '.$action);
             return response()->json([]);
         } catch (Exception $e) {
             $res = [
