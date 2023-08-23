@@ -59,29 +59,29 @@ class CounterController extends Controller
     {
         try {
             $action = request()->input('action');
-            if ($action == "inc") {
-                $data = (new Counters)->find(1);
-                if ($data == null) {
-                    $count = 1;
-                }else {
-                    $count = $data["count"] + 2;
-                }
+            // if ($action == "inc") {
+            //     $data = (new Counters)->find(1);
+            //     if ($data == null) {
+            //         $count = 1;
+            //     }else {
+            //         $count = $data["count"] + 2;
+            //     }
     
-                $counters = new Counters;
-                $counters->updateOrCreate(['id' => 1], ["count" => $count]);
-            }else if ($action == "clear") {
-                Counters::destroy(1);
-                $count = 0;
-            }else {
-                throw '参数action错误';
-            }
+            //     $counters = new Counters;
+            //     $counters->updateOrCreate(['id' => 1], ["count" => $count]);
+            // }else if ($action == "clear") {
+            //     Counters::destroy(1);
+            //     $count = 0;
+            // }else {
+            //     throw '参数action错误';
+            // }
 
-            $res = [
-                "code" => 0,
-                "data" =>  $count
-            ];
-            Log::info('updateCount rsp: '.json_encode($res));
-            return response()->json($res);
+            // $res = [
+            //     "code" => 0,
+            //     "data" =>  $count
+            // ];
+            Log::info('updateCount rsp: ');
+            return response()->json([]);
         } catch (Exception $e) {
             $res = [
                 "code" => -1,
