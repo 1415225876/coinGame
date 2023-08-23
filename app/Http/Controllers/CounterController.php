@@ -25,6 +25,7 @@ class CounterController extends Controller
      */
     public function getCount()
     {
+        Log::info('enter getCount');
         try {
             $jsonContent = request()->getContent();
             Log::info('getCount Received JSON: ' . $jsonContent);
@@ -48,6 +49,7 @@ class CounterController extends Controller
      */
     public function updateCount()
     {
+        Log::info('enter updateCount');
         try {
             $jsonContent = request()->getContent();
             Log::info('updateCount Received JSON data: ' . $jsonContent);
