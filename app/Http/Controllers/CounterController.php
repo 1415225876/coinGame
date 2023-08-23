@@ -58,30 +58,10 @@ class CounterController extends Controller
     public function updateCount()
     {
         try {
-            $action = request()->input('action');
-            // if ($action == "inc") {
-            //     $data = (new Counters)->find(1);
-            //     if ($data == null) {
-            //         $count = 1;
-            //     }else {
-            //         $count = $data["count"] + 2;
-            //     }
-    
-            //     $counters = new Counters;
-            //     $counters->updateOrCreate(['id' => 1], ["count" => $count]);
-            // }else if ($action == "clear") {
-            //     Counters::destroy(1);
-            //     $count = 0;
-            // }else {
-            //     throw '参数action错误';
-            // }
-
-            // $res = [
-            //     "code" => 0,
-            //     "data" =>  $count
-            // ];
-            Log::info('updateCount rsp: '.$action);
-            return response()->json([]);
+            // $action = request()->input('json');
+            $jsonContent = $request->getContent();
+            Log::info('updateCount Received JSON data: ' . $jsonContent);
+            return response()->json($jsonContent);
         } catch (Exception $e) {
             $res = [
                 "code" => -1,
