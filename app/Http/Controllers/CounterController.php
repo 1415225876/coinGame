@@ -92,4 +92,29 @@ class CounterController extends Controller
             return response()->json($res);
         }
     }
+
+        /**
+     * 根据id查询todo数据
+     * @param $action `string` 类型，枚举值，等于 `"inc"` 时，表示计数加一；等于 `"reset"` 时，表示计数重置（清零）
+     * @return Json
+     */
+    public function testMessageSender()
+    {
+        try {
+            $action = request()->input('action');
+            Log::info('testMessageSender rsp: '.$action);
+            $res = [];
+            return response()->json($res);
+           
+        } catch (Exception $e) {
+            $res = [
+                "code" => -1,
+                "data" => [],
+                "errorMsg" => ("更新计数异常" . $e->getMessage())
+            ];
+            Log::info('testMessageSender rsp: '.json_encode($res));
+            return response()->json($res);
+        }
+    }
+
 }
