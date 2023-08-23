@@ -13,7 +13,7 @@
 
 use App\Http\Controllers\CounterController;
 
-// // 计数器主页
+// 计数器主页
 Route::get('/', function () {
     return view('counter');
 });
