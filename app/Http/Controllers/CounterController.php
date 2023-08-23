@@ -93,25 +93,25 @@ class CounterController extends Controller
         }
     }
 
-    public function testMessageSender()
-    {
-        try {
-            $action = request()->input('action');
-            Log::info('testMessageSender rsp0: '.$action);
-            $res = [
-                "data" => [],
-            ];
-            return response()->json($res);
+    // public function testMessageSender()
+    // {
+    //     try {
+    //         $action = request()->input('action');
+    //         Log::info('testMessageSender rsp0: '.$action);
+    //         $res = [
+    //             "data" => [],
+    //         ];
+    //         return response()->json($res);
            
-        } catch (Exception $e) {
-            $res = [
-                "code" => -1,
-                "data" => [],
-                "errorMsg" => ("更新计数异常" . $e->getMessage())
-            ];
-            Log::info('testMessageSender rsp1: '.json_encode($res));
-            return response()->json($res);
-        }
-    }
+    //     } catch (Exception $e) {
+    //         $res = [
+    //             "code" => -1,
+    //             "data" => [],
+    //             "errorMsg" => ("更新计数异常" . $e->getMessage())
+    //         ];
+    //         Log::info('testMessageSender rsp1: '.json_encode($res));
+    //         return response()->json($res);
+    //     }
+    // }
 
 }
