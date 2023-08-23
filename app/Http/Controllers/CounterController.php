@@ -93,17 +93,14 @@ class CounterController extends Controller
         }
     }
 
-        /**
-     * 根据id查询todo数据
-     * @param $action `string` 类型，枚举值，等于 `"inc"` 时，表示计数加一；等于 `"reset"` 时，表示计数重置（清零）
-     * @return Json
-     */
     public function testMessageSender()
     {
         try {
             $action = request()->input('action');
-            Log::info('testMessageSender rsp: '.$action);
-            $res = [];
+            Log::info('testMessageSender rsp0: '.$action);
+            $res = [
+                "data" => [],
+            ];
             return response()->json($res);
            
         } catch (Exception $e) {
@@ -112,7 +109,7 @@ class CounterController extends Controller
                 "data" => [],
                 "errorMsg" => ("更新计数异常" . $e->getMessage())
             ];
-            Log::info('testMessageSender rsp: '.json_encode($res));
+            Log::info('testMessageSender rsp1: '.json_encode($res));
             return response()->json($res);
         }
     }
