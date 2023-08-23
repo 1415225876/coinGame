@@ -58,8 +58,7 @@ class CounterController extends Controller
     public function updateCount()
     {
         try {
-            // $action = request()->input('json');
-            $jsonContent = $request->getContent();
+            $jsonContent = request()->getContent();
             Log::info('updateCount Received JSON data: ' . $jsonContent);
             return response()->json($jsonContent);
         } catch (Exception $e) {
