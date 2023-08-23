@@ -25,7 +25,6 @@ class CounterController extends Controller
      */
     public function getCount()
     {
-        Log::info('enter getCount');
         try {
             $jsonContent = request()->getContent();
             Log::info('getCount Received JSON: ' . $jsonContent);
@@ -49,11 +48,47 @@ class CounterController extends Controller
      */
     public function updateCount()
     {
-        Log::info('enter updateCount');
         try {
             $jsonContent = request()->getContent();
             Log::info('updateCount Received JSON data: ' . $jsonContent);
-            return response()->json($jsonContent);
+            // {"ToUserName":"gh_e4dd0e2741ef",
+            //     "FromUserName":"oa3VM5WoV3dqsKUeK69u5bRoa2LI",
+            //     "CreateTime":1692785113,
+            //     "MsgType":"event",
+            //     "Event":"subscribe_msg_popup_event",
+            //     "List":
+            //     {
+            //         "PopupScene":"0",
+            //         "SubscribeStatusString":"reject",
+            //         "TemplateId":"QPT5OgXJj7GIFI7xASwDpDa7Jvy-dMI8GstmbT3P7Sw"
+            //     }
+            // }
+            // $json = json_encode($jsonContent)
+            // $CreateTime = json.CreateTime;
+
+            // $jsonData = [
+            //     "CreateTime" => 1583202606,
+            //     "MsgType" => "event",
+            //     "Event" => "minigame_deliver_goods",
+            //     "MiniGame" => [
+            //         "OrderId" => "r_123",
+            //         "IsPreview" => 1,
+            //         "ToUserOpenid" => "to_user_openid",
+            //         "Zone" => 1001,
+            //         "GiftTypeId" => 1,
+            //         "GiftId" => "gift_id_xxx",
+            //         "SendTime" => 1583202600,
+            //         "GoodsList" => [
+            //             ["Id" => "id_100001", "Num" => 3]
+            //         ]
+            //     ]
+            // ];
+
+            $res = [
+                "ErrCode" => 0,
+                "ErrMsg" => "Success"
+            ];
+            return response()->json($res);
         } catch (Exception $e) {
             $res = [
                 "code" => -1,
