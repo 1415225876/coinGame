@@ -24,4 +24,4 @@ Route::get('/api/count', 'CounterController@getCount');
 // 更新计数，自增或者清零
 Route::post('/api/count', 'CounterController@updateCount');
 //测试推送路径
-Route::post('/api/count', 'CounterController@testMessageSender');
+Route::post('/testMessageSender', 'CounterController@testMessageSender');
