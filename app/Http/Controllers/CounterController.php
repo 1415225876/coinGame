@@ -25,26 +25,39 @@ class CounterController extends Controller
      */
     public function getCount()
     {
+        // try {
+        //     $data = (new Counters)->find(1);
+        //     if ($data == null) {
+        //         $count = 0;
+        //     }else {
+        //         $count = $data["count"];
+        //     }
+        //     $res = [
+        //         "code" => 0,
+        //         "data" =>  $count
+        //     ];
+        //     Log::info('getCount rsp: '.json_encode($res));
+        //     return response()->json($res);
+        // } catch (Error $e) {
+        //     $res = [
+        //         "code" => -1,
+        //         "data" => [],
+        //         "errorMsg" => ("查询计数异常" . $e->getMessage())
+        //     ];
+        //     Log::info('getCount rsp: '.json_encode($res));
+        //     return response()->json($res);
+        // }
         try {
-            $data = (new Counters)->find(1);
-            if ($data == null) {
-                $count = 0;
-            }else {
-                $count = $data["count"];
-            }
-            $res = [
-                "code" => 0,
-                "data" =>  $count
-            ];
-            Log::info('getCount rsp: '.json_encode($res));
-            return response()->json($res);
-        } catch (Error $e) {
+            $jsonContent = request()->getContent();
+            Log::info('updateCount Received JSON data: ' . $jsonContent);
+            return response()->json($jsonContent);
+        } catch (Exception $e) {
             $res = [
                 "code" => -1,
                 "data" => [],
-                "errorMsg" => ("查询计数异常" . $e->getMessage())
+                "errorMsg" => ("更新计数异常" . $e->getMessage())
             ];
-            Log::info('getCount rsp: '.json_encode($res));
+            Log::info('updateCount rsp: '.json_encode($res));
             return response()->json($res);
         }
     }
