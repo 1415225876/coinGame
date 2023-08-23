@@ -14,9 +14,9 @@
 use App\Http\Controllers\CounterController;
 
 // // 计数器主页
-// Route::get('/', function () {
-//     return view('counter');
-// });
+Route::get('/', function () {
+    return view('counter');
+});
 
 // 获取当前计数
 Route::get('/api/count', 'CounterController@getCount');
